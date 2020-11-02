@@ -11,7 +11,7 @@
 	<center>
 		<h5>アカウント持っています？<a href="login.php">ログイン</a></h5>
 		<h3 style="line-height:80px;height:80px;">新規登録</h3>
-		<form action="action.php?a=register" method="post" enctype="multipart/form-data">
+		<form action="act_Register.php" method="post" enctype="multipart/form-data">
 		<div class="col-lg-4 col-md-4 col-lg-offset-4">
 			<table border="0" width="450" class="table">
 				<tr>

@@ -2,19 +2,20 @@
 # Date: 2020-11-01 02:35:58
 # Generator: MySQL-Front 5.3  (Build 4.234)
 
-/*!40101 SET NAMES utf8 */;
 
 #
 # Structure for table "message"
 #
+CREATE DATABASE message_board;
+use message_board; 
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `message_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '留言ID，主键，自增',
-  `message_content` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '留言内容',
-  `create_time` datetime NOT NULL COMMENT '留言时间',
-  `id` int(11) NOT NULL COMMENT '留言用户id',
-  `message_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '留言用户',
+  `message_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID，キー，up',
+  `message_content` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '返信内容',
+  `create_time` datetime NOT NULL COMMENT '返信時間',
+  `id` int(11) NOT NULL COMMENT '返信ユーザid',
+  `message_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '返信者',
   PRIMARY KEY (`message_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -30,13 +31,13 @@ INSERT INTO `message` VALUES (16,'アメリカ\r\n        ----------------------
 
 DROP TABLE IF EXISTS `reply`;
 CREATE TABLE `reply` (
-  `reply_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '回复id，主键，自增',
-  `reply_content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '回复内容',
-  `message_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '留言的用户',
-  `create_time` datetime NOT NULL COMMENT '回复时间',
-  `message_id` int(11) NOT NULL COMMENT '评论id',
-  `id` int(11) NOT NULL COMMENT '回复用户id',
-  `reply_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '回复的用户',
+  `reply_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '返信者id，キー，UP',
+  `reply_content` varchar(500) COLLATE utf8_unicode_ci NOT NULL COMMENT '返信内容',
+  `message_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '返信者',
+  `create_time` datetime NOT NULL COMMENT '返信時間',
+  `message_id` int(11) NOT NULL COMMENT '返信内容id',
+  `id` int(11) NOT NULL COMMENT '返信者id',
+  `reply_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '返信者',
   PRIMARY KEY (`reply_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -52,11 +53,11 @@ INSERT INTO `reply` VALUES (5,'hello','Aさん','2020-11-01 01:24:34',16,8,'Bさ
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID，主键，自增',
-  `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名，字符串',
-  `userpass` varchar(35) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户密码',
-  `create_time` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户创建时间',
-  `imgpath` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '头像',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID，キー，UP',
+  `username` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ユーザ名',
+  `userpass` varchar(35) COLLATE utf8_unicode_ci NOT NULL COMMENT 'パスワード',
+  `create_time` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '新規時間',
+  `imgpath` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT '顔',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
